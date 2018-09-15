@@ -75,8 +75,8 @@ app.get("/Blogs", function(req, res) {
 app.get("/Blogs/:id", function(req, res) {
   db.Blog.findOne({ _id: req.params.id })
     .populate("Note")
-    .then(function(dbArticle) {
-      res.json(dbArticle);
+    .then(function(dbBlog) {
+      res.json(dbBlog);
     })
     .catch(function(err) {
       res.json(err);
@@ -88,8 +88,8 @@ app.post("/Blogs/:id", function(req, res) {
     .then(function(dbNote) {
       return db.Blog.findOneAndUpdate({ _id: req.params.id }, { note: dbNote._id }, { new: true });
     })
-    .then(function(dbArticle) {
-      res.json(dbArticle);
+    .then(function(dbBlog) {
+      res.json(dbBlog);
     })
     .catch(function(err) {
       res.json(err);
