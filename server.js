@@ -1,20 +1,20 @@
 const express = require("express");
-const exphbs  = require('express-handlebars');
+var exphbs  = require('express-handlebars');
 
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
-const axios = require("axios");
+const cheerio = require("cheerio");
 const logger = require("morgan");
 const request = require("request");
-var cheerio = require("cheerio");
-
+const axios = require("axios");
+//require models
 const db = require("./models");
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+
 
 var app = express();
 app.engine('handlebars', exphbs({defaultLayout: 'index'}));
 app.set('view engine', 'handlebars');
-
 
 app.use(logger("dev"));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -32,11 +32,11 @@ app.get("/", function(req, res){
   })
 
 app.get("/scrape", function(req, res) {
-  axios.get("https://www.vividseats.com/blog/best-rap-hip-hop-blogs").then(function(response) {
+  axios.get("https://www.gq.com/about/hip-hop").then(function(response) {
     
   var $ = cheerio.load(response.data);
 
-    $("h2").each(function(i, element) {
+    $("h2.title-card__hed").each(function(i, element) {
       var result = {};
 
       result.title = $(this)

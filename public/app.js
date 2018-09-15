@@ -1,6 +1,6 @@
 $.getJSON("/Blogs", function(data) {
     for (var i = 0; i < data.length; i++) {
-      $("#Blogs").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br><a target='_blank' href='https://www.vividseats.com/blog/best-rap-hip-hop-blogs" + data[i].link + "'> Link to Blogs </a>" + "</p>");
+      $("#Blogs").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br><a target='_blank' href='https://www.gq.com/about/hip-hop" + data[i].link + "'> Link to Blogs </a>" + "</p>");
     }
   });
   
