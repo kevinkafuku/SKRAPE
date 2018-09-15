@@ -1,0 +1,50 @@
+      body { background-image: url('rap.jpg');
+      background-size: 100%;
+      };
+
+
+      .rap {
+        color: white;
+        font-family: 'Caesar Dressing', cursive;
+      }
+
+      .stitches {
+        color:lightgreen;
+        font-family: 'Caesar Dressing', cursive;
+      }
+
+      #wrapper {
+        width: 960px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 5%;
+        color: powderblue;
+        font-family: 'Caesar Dressing', cursive;
+      }
+      #Blogs {
+        font-family: 'Caesar Dressing', cursive;
+        display: inline-block;
+        overflow: auto;
+        width: 60%;
+        height: 700px;
+      }
+      #Notes {
+        font-family: 'Caesar Dressing', cursive;
+        float: right;
+        width: 30%;
+      }
+      textarea, input {
+        font-family: 'Caesar Dressing', cursive;
+        color: seagreen;
+        display: block;
+        width: 100%;
+        background-color: #FCF5C7;
+      }
+      input {
+        height: 36px;
+        font-size: 24px;
+      }
+      textarea {
+        height: 200px;
+        font-size: 18px;
+      }
