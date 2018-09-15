@@ -36,31 +36,31 @@ app.get("/scrape", function(req, res) {
     
   var $ = cheerio.load(response.data);
 
-    $("h2.title-card__hed").each(function(i, element) {
-      var result = {};
+    $(".title-card__hed-link").each(function(i, element) {
+    
+    var result = {};
 
-      result.title = $(this)
-      .text();
-
-      result.link = $(this)
-      .attr("href");
+      result.title = $(element).children("h2").text()
+      result.link = $(element).attr("href");
 
       db.Blog.create(result)
         .then(function(dbBlog) {
+          res.send("SKRAPE COMPLETE DAWG, GET UP ON OUTTA HERE");    
           console.log(dbBlog);
         })
         .catch(function(err) {
+         console.log(err);  
           return res.json(err);
         });
     });
 
-    res.send("SKRAPE COMPLETE DAWG, GET UP ON OUTTA HERE");
+    //res.send("SKRAPE COMPLETE DAWG, GET UP ON OUTTA HERE");
   });
 });
 
 app.get("/", function(req, res){
     res.render('main');
-  })
+})
 
 app.get("/Blogs", function(req, res) {
   db.Blog.find({})
